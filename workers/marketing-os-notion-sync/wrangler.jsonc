@@ -1,0 +1,46 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "marketing-os-notion-sync",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-08-27",
+  "compatibility_flags": ["nodejs_compat"],
+  "d1_databases": [
+    {
+      "binding": "SYNC_DB",
+      "database_name": "sync-state",
+      "database_id": "45cbd382-a5bc-4804-8d97-ccf4bf61b638"
+    }
+  ],
+  "vars": {
+    "MARKETING_OS_RECEIPT_URL": "https://haircampaign-k3lybt53.manus.space/api/sync/notion/receipt"
+  },
+  "queues": {
+    "producers": [
+      {
+        "binding": "SYNC_QUEUE",
+        "queue": "marketing-os-notion-sync-continuations"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "marketing-os-notion-sync-continuations",
+        "max_batch_size": 1,
+        "max_batch_timeout": 5,
+        "max_retries": 3,
+        "max_concurrency": 1
+      }
+    ]
+  },
+  "triggers": {
+    "crons": ["*/30 * * * *"]
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "head_sampling_rate": 1
+    }
+  }
+}

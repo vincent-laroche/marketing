@@ -1,0 +1,10 @@
+{
+  "name": "marketing-os-notion-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "check": "node --check src/contract.mjs && node --check src/index.mjs"
+  }
+}
