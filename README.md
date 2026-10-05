@@ -81,6 +81,7 @@ python3 -m unittest tests.email_operations.test_project_agents -v
 | `data/social-media/` | Public-safe campaign calendar and production-matrix sources. |
 | `tools/github_campaign_os/` | Idempotent Issue/Project compiler, synchronizers, and verifiers. |
 | `tools/email-preview/` | Fail-closed Shopify Liquid preview compiler and screenshot/gallery tooling. |
+| `tools/instagram-saves/` | Instagram saved-posts → Notion sync and content-idea CLI (moved from `instagram-saves-content-engine`). |
 | `email-previews/publication-ledger.json` | Append-only, reviewed publication and withdrawal events for public Pages previews. Active URLs exist only after the matching event is merged to `main`. |
 | `.codex/agents/` | Twelve project-local specialists plus their shared operating contract and routing guide. |
 | `shopify-messaging/PREVIEW-READINESS.md` | Generated source-readiness inventory: which of the 53 render, and why the rest do not. |
